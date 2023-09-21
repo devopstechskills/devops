@@ -1,6 +1,6 @@
 def call(String GITHUB_ORG, String NEW_REPO_NAME) {
     try {
-             def apiUrl = "https://api.github.com/orgs/${GITHUB_ORG}/repos"
+             def apiUrl = "https://api.github.com/orgs/GITHUB_ORG/repos"
                     def payload = [
                         name: NEW_REPO_NAME,
                         description: 'fourthrepo',
