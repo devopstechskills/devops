@@ -18,6 +18,7 @@ def call(String GITHUB_ORG, String NEW_REPO_NAME) {
                         authentication: 'PAT2'
                     )
 
+                   println("hello")
                     if (response.status == 201) {
                         echo "GitHub repository '${NEW_REPO_NAME}' created successfully."
                     } else {
