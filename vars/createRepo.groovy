@@ -6,7 +6,7 @@ def call(String GITHUB_ORG, String NEW_REPO_NAME) {
                         default_branch: 'dev',
                         description: 'fourthrepo',
                         private: false,
-                        auto_init: true         
+                        //auto_init: true         
                     ]
 
                     def response = httpRequest(
