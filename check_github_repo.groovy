@@ -1,10 +1,11 @@
+
 def forceSkip=false
 
 pipeline {
     agent any
 
     environment {
-        GITHUB_TOKEN = credentials('PAT2')
+       // GITHUB_TOKEN = credentials('PAT-Maddu')
         GITHUB_ORG = 'devopstechskills'
         NEW_REPO_NAME = 'dummyrepo11'
         BRANCH_NAME='main'
@@ -16,13 +17,16 @@ pipeline {
                 script {
                     //def branchExists = false
                    def apiUrl = "https://api.github.com/repos/${GITHUB_ORG}/${NEW_REPO_NAME}"
+                   //def GITHUB_TOKEN = credentials('PAT-Maddu')
 
                     // Check if the GitHub repository exists
                     def checkResponse = httpRequest(
                         httpMode: 'GET',
                         url: apiUrl,
                         acceptType: 'APPLICATION_JSON',
-                        customHeaders: [[name: 'Authorization', value: "token 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"]]
+                        //requestBody: groovy.json.JsonOutput.toJson(payload),
+                        authentication: 'PAT-Maddu'
+
                     )
                     
                     echo "code: ${checkResponse.status}"
@@ -40,3 +44,4 @@ pipeline {
        
     }
 }
+
